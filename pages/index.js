@@ -2,15 +2,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home({title}) {
   return (
     <div className={styles.container} >
       <Head>
-        <title>Events App</title>
+        <title>{title}</title>
         <meta name="description" content="next" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <header>
         <nav>
           <img />
@@ -44,4 +43,12 @@ export default function Home() {
 
     </div>
   )
+}
+
+export function getServerSideProps() {
+  return  {
+    props: {
+      title: "Hello"
+    }
+  }
 }
